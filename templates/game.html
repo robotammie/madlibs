@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Entry Form</title>
+</head>
+
+<body>
+
+    <h1>Mad Libs</h1>
+
+    <form action='/madlib' method='post'>
+        <label for='field-name'>Choose a person: </label>
+            <input type='text' name='name' id='field-name'>
+            <br>
+            <br>
+
+        <label for='field-color'>Choose a color: </label>
+            <select name='color' id='field-color'>
+                <option value='chartreuse'>Chartreuse</option>
+                <option value='puce'>Puce</option>
+                <option value='aubergine'>Aubergine</option>
+                <option value='ecru'>Ecru</option>
+                <option value='mac-n-cheese'>Mac-n-Cheese</option>
+                <option value='burnt-sienna'>Burnt Sienna</option>
+            </select>
+            <br>
+            <br>
+
+        <label for='field-noun'>Choose a noun: </label>
+            <input type='text' name='noun' id='field-noun'>
+            <br>
+            <br>
+
+        <label for='field-adjective'>Choose an adjective: </label>
+            <input type='text' name='adjective' id='field-adjective'>
+            <br>
+            <br>
+
+        <input type='submit'>
+
+    </form>
+
+</body>
+
+</html>

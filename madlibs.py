@@ -40,15 +40,34 @@ def greet_person():
 
 @app.route('/game')
 def show_game_form():
-    """docstring"""
+    """Get madlib input"""
 
-    play_game = request.args.get('play-game')
+    play_game = request.args.get('play-game', 'no')
 
     if play_game == "yes":
         return render_template("game.html")
 
     else:
         return render_template('goodbye.html')
+
+    # else:
+    #     return "why didn't you choose???"
+
+
+@app.route('/madlib', methods=['POST'])
+def show_madlib():
+    """renders a delightfully hilarious story"""
+
+    name = request.form.get("name")
+    color = request.form.get("color")
+    noun = request.form.get("noun")
+    adjective = request.form.get("adjective")
+
+    return render_template("madlib.html",
+                           person=name,
+                           color=color,
+                           noun=noun,
+                           adjective=adjective)
 
 
 
