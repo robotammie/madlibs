@@ -60,7 +60,11 @@ def show_madlib():
 
     name = request.form.get("name")
     color = request.form.get("color")
-    noun = request.form.get("noun")
+
+    mylist = ["orca", "baluga", "narwhal"]
+
+    noun = ", ".join(mylist[:-1]) + " and " + mylist[-1]
+
     adjective = request.form.get("adjective")
 
     return render_template("madlib.html",
