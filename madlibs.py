@@ -38,40 +38,51 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
-@app.route('/game')
+@app.route('/game2')
 def show_game_form():
     """Get madlib input"""
 
-    play_game = request.args.get('play-game', 'no')
+    play_game = request.args.get('play-game')
 
     if play_game == "yes":
-        return render_template("game.html")
+        return render_template("game2.html")
 
     else:
         return render_template('goodbye.html')
 
-    # else:
-    #     return "why didn't you choose???"
 
 
-@app.route('/madlib', methods=['POST'])
+
+@app.route('/madlib2', methods=['POST'])
 def show_madlib():
     """renders a delightfully hilarious story"""
 
-    name = request.form.get("name")
-    color = request.form.get("color")
-
-    mylist = ["orca", "baluga", "narwhal"]
-
-    noun = ", ".join(mylist[:-1]) + " and " + mylist[-1]
-
     adjective = request.form.get("adjective")
+    adverb = request.form.get("adverb")
+    body_part = request.form.get("body-part")
+    noun = request.form.get("noun")
+    plural_noun = request.form.get("plural-noun")
 
-    return render_template("madlib.html",
-                           person=name,
-                           color=color,
+    dwarf_input = request.form.getlist("dwarfs")
+
+    print dwarf_input
+    # all_dwarfs = ["Snow White"] + dwarf_input
+
+    # if dwarf_input == []:
+    #     dwarfs = "Snow White"
+    #     dwarf = "Snow White"
+    # else: 
+    #     dwarfs = ", ".join(all_dwarfs[:-1]) + " and " + all_dwarfs[-1]
+    #     dwarf = choice(all_dwarfs)
+
+    return render_template("madlibs2.html",
+                           adjective=adjective,
+                           adverb=adverb,
+                           body=body_part,
                            noun=noun,
-                           adjective=adjective)
+                           nouns=plural_noun,
+                           dwarfs=dwarf_input,
+                           dwarf=dwarf_input)
 
 
 
