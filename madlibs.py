@@ -40,13 +40,13 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
-@app.route('/game2/<templ>')
+@app.route('/game2/<templ>', methods=['POST'])
 def show_game_form(templ):
     """Get madlib input"""
 
-    play_game = request.args.get('play-game')
+    templ = request.form.get('templ')
 
-    if play_game == "no":
+    if templ == "no":
         return render_template("goodbye.html")
 
     else:

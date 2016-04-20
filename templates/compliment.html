@@ -6,11 +6,11 @@
 <body>
     Hi {{ person }}! I think you're {{ compliment }}!
     <br><br>
-    <form action="/game2/">
+    <form action="/game2/" method='post'>
         <label> Would you like to play madlibs?
-            <input type="radio" name="play-game" value="sanfran">Story 1
-            <input type="radio" name="play-game" value="forest">Story 2
-            <input type="radio" name="play-game" value="no">No
+            <input type="radio" name="templ" value="sanfran">Story 1
+            <input type="radio" name="templ" value="forest">Story 2
+            <input type="radio" name="templ" value="no">No
             <input type="submit">
         </label>
     </form>
